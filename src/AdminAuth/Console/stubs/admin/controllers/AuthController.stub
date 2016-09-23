@@ -1,0 +1,61 @@
+<?php
+
+namespace {{namespace}}Http\Controllers\Admin;
+
+use App\Http\Controllers\Controller;
+use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Foundation\Auth\ThrottlesLogins;
+
+class AuthController extends Controller
+{
+    /*
+    |--------------------------------------------------------------------------
+    | Registration & Login Controller
+    |--------------------------------------------------------------------------
+    |
+    | This controller handles the registration of new users, as well as the
+    | authentication of existing users. By default, this controller uses
+    | a simple trait to add these behaviors. Why don't you explore it?
+    |
+    */
+
+    use AuthenticatesUsers, ThrottlesLogins;
+
+    /**
+     * Where to redirect users after login.
+     *
+     * @var string
+     */
+    protected $redirectTo;
+
+    /**
+     * Where to redirect users after logout
+     */
+    protected $redirectAfterLogout;
+
+    /**
+     * Admin Login Page Template
+     *
+     * @var string
+     */
+    protected $loginView = 'admin.auth.login';
+
+    /**
+     * Admin guard
+     *
+     * @var string
+     */
+    protected $guard = "admin";
+
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->redirectTo = route('admin');
+        $this->redirectAfterLogout = route("admin.login");
+    }
+}

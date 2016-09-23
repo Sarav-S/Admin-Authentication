@@ -1,0 +1,21 @@
+{
+    "name": "sarav/admin-auth",
+    "description": "A simple package to setup admin authentication system",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Saravanan Sampath kumar",
+            "email": "me@sarav.co"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Sarav\\": "src/"
+        },
+        "files": [
+            "src/AdminAuth/helpers.php"
+        ]
+    },
+    "minimum-stability": "stable",
+    "require": {}
+}
