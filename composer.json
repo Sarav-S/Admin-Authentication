@@ -15,7 +15,5 @@
         "files": [
             "src/AdminAuth/helpers.php"
         ]
-    },
-    "minimum-stability": "stable",
-    "require": {}
+    }
 }
