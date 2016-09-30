@@ -35,22 +35,26 @@ class AdminAuthServiceProvider extends ServiceProvider
      */
     public function registerAuthConfig()
     {
-    	$this->app['config']['auth.guards'] = ['admin' => [
+    	$config = $this->app['config']['auth'];
+
+        $config['guards']['admins'] = [
             'driver' => 'session',
             'provider' => 'admins',
-        ]];
+        ];
 
-        $this->app['config']['auth.providers'] = ['admins' => [
+        $config['providers']['admins'] = [
             'driver' => 'eloquent',
-            'model' => \App\Admin::class,
-        ]];
+            'model' => \Core\Admin\Auth\Model\Admin::class,
+        ];
 
-        $this->app['config']['auth.passwords'] = ['admins' => [
+        $config['passwords']['admins'] = [
             'provider' => 'admins',
             'email'    => 'admin.auth.emails.password',
             'table'    => 'password_resets',
             'expire'   => 60,
-        ]];
+        ];
+
+        $this->app['config']['auth'] = $config;
     }
 
     /**
