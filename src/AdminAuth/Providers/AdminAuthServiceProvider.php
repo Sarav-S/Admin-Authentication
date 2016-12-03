@@ -37,14 +37,14 @@ class AdminAuthServiceProvider extends ServiceProvider
     {
     	$config = $this->app['config']['auth'];
 
-        $config['guards']['admins'] = [
+        $config['guards']['admin'] = [
             'driver' => 'session',
             'provider' => 'admins',
         ];
 
         $config['providers']['admins'] = [
             'driver' => 'eloquent',
-            'model' => \Core\Admin\Auth\Model\Admin::class,
+            'model' => \App\Admin::class,
         ];
 
         $config['passwords']['admins'] = [
